@@ -1,0 +1,64 @@
+<!-- Enter your HTML code here -->
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="css/binaryCalculator.css" type="text/css" />
+  </head>
+
+  <body>
+    <style>
+      body {
+        width: 33%;
+      }
+
+      #res {
+        background-color: lightgray;
+        border: solid;
+        height: 48px;
+        font-size: 20px;
+      }
+
+      #btns button {
+        width: 25%;
+        height: 36px;
+        font-size: 18px;
+        margin: 0;
+        float: left;
+      }
+
+      #btn0,
+      #btn1 {
+        background-color: lightgreen;
+        color: brown;
+      }
+
+      #btnClr,
+      #btnEql {
+        background-color: darkgreen;
+        color: white;
+      }
+
+      #btnSum,
+      #btnSub,
+      #btnMul,
+      #btnDiv {
+        background-color: black;
+        color: red;
+      }
+    </style>
+
+    <div id="res"></div>
+    <div id="btns">
+      <button class="btns" id="btn0" onclick="b0cl()">0</button>
+      <button class="btns" id="btn1" onclick="b1cl()">1</button>
+      <button class="btns" id="btnClr" onclick="bccl()">C</button>
+      <button class="btns" id="btnEql" onclick="becl()">=</button>
+      <button class="btns" id="btnSum" onclick="bSumcl()">+</button>
+      <button class="btns" id="btnSub" onclick="bSubcl()">-</button>
+      <button class="btns" id="btnMul" onclick="bmcl()">*</button>
+      <button class="btns" id="btnDiv" onclick="bdcl()">/</button>
+    </div>
+
+    <script src="js/binaryCalculator.js" type="text/javascript"></script>
+  </body>
+</html>
