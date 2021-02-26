@@ -53,13 +53,7 @@ function main() {
         streetsamount = Number(firstLine[2]);
         carsamount = Number(firstLine[3]);
         pointspercar = Number(firstLine[4]);
-      } //   console.log({
-      //     intersectionAmount,
-      //     carsamount,
-      //     pointspercar,
-      //     totaltime,
-      //     streetsamount,
-      //   });
+      } 
       else if (key < streetsamount + 1) {
         let x = line.split(" ");
 
@@ -74,7 +68,6 @@ function main() {
   out();
   console.log(data);
   fs.writeFile("Outputa.txt", data, (err) => {
-    // In case of a error throw err.
     if (err) throw err;
   });
 }
