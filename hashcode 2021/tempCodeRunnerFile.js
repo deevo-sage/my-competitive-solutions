@@ -1,1 +1,0 @@
- inputString += inputStdin;
