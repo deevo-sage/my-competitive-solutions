@@ -1,10 +1,9 @@
 "use strict";
 
-
 process.stdin.resume();
 process.stdin.setEncoding("utf-8");
-const _ = require("lodash");   
-  
+const _ = require("lodash");
+
 var intersections = [],
   streets = {},
   totaltime,
@@ -37,20 +36,16 @@ function output() {
   }
 }
 function addcarcounts() {
-  for (let i= 0; i < cardat.length; i++) {
-_.forEach(
-cardat[i].roads,
-(item)=>{
-  if(item)
-  {
-    streets[item].cars+=1;
-  }
-  }
-)
+  for (let i = 0; i < cardat.length; i++) {
+    _.forEach(cardat[i].roads, (item) => {
+      if (item) {
+        streets[item].cars += 1;
+      }
+    });
   }
 }
 
- function main() {
+function main() {
   const fs = require("fs");
   fs.readFileSync("a.txt", "utf-8")
     .split(/\r?\n/)
@@ -65,19 +60,20 @@ cardat[i].roads,
         pointspercar = Number(firstLine[4]);
       } else if (key < streetsamount + 1) {
         let x = line.split(" ");
-        streets[x[2]] = { start: x[0], end: x[1], time: x[3],cars:0 };
+        streets[x[2]] = { start: x[0], end: x[1], time: x[3], cars: 0 };
       } else {
         let x = line.split(" ");
         let roadcount = Number(x[0]);
         delete x[0];
-        let roads = x, carobj = { roadcount, roads };
+        let roads = x,
+          carobj = { roadcount, roads };
         cardat.push(carobj);
       }
     });
-addcarcounts()
+  addcarcounts();
   intersectioninitial();
   output();
-  console.log({cars:cardat[0].roads,streets});
+  console.log({ cars: cardat[0].roads, streets });
 
   fs.writeFile("Outputa.txt", data, (err) => {
     if (err) throw err;
