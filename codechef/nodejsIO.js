@@ -19,13 +19,8 @@ function start() {
     return e;
   });
   for (let i = 1; i <= n; i++) {
-    checkfactorial(chunks[i]);
+    solveProblem(chunks[i]);
   }
 }
 
-function solveProblem(arg) {
-  let args = parseInt(arg);
-  var solution = checkfactorial(args);
-  console.log(solution);
-}
-function sol(args) {}
+function solveProblem(arg) {}
