@@ -16,11 +16,6 @@ function ListNode(val, next) {
  */
 var reorderList = function (head) {
   let temp = head;
-  const stack = [];
-  while (temp.next) {
-    stack.push(temp.val);
-  }
-  let i = 0;
-  j = stack.length;
+  
 };
 // @lc code=end

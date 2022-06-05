@@ -11,51 +11,38 @@
  * @return {number}
  */
 var search = function (nums, target) {
-  let min = 0,
-    max = nums.length - 1;
-  if (nums[0] === target) {
-    return 0;
-  } else if (nums[max] === target) {
-    return max;
-  }
-  let prevmid = -1;
-  while (min < max) {
-    let mid = (min + max) / 2;
-    if (prevmid === mid) {
-      break;
-    }
-
-    prevmid = mid;
-    mid = Math.floor(mid);
-    console.log({ mid, min, max, val: nums[mid] });
-    if (target <= nums[mid]) {
-      if (target >= nums[min]) {
-        max = mid;
-      } else {
-        min = mid;
-      }
-    } else if (target >= nums[mid]) {
-      console.log("x");
-      if (nums[max] >= target) {
-        max = mid;
-      } else if (target >= nums[max] && target >= nums[min]) {
-        max -= 1;
-        if (nums[max] === target) {
-          return max;
-        }
-      } else {
-        min = mid;
-      }
-    }
-    if (nums[mid] === target) {
+  let left = 0,
+    right = nums.length - 1;
+  while (left <= right) {
+    let mid = Math.floor((right + left) / 2);
+    if (target == nums[mid]) {
       return mid;
     }
-    console.log({ min, max });
+    // if mid is smaller than it is in the small sorted side
+    if (nums[mid] < nums[left]) {
+      // target greater than mid but small than right then it lies between them
+      if (target > nums[mid] && target <= nums[right]) {
+        left = mid + 1;
+      }
+      // smaller than mid then on the other side
+      else {
+        right = mid - 1;
+      }
+    }
+    // mid greater than left so in large sorted side
+    else {
+      // target smaller than mid and greater than left than between them
+      if (target <= nums[mid] && target >= nums[left]) {
+        right = mid - 1;
+      }
+      // else on the other side
+      else {
+        left = mid + 1;
+      }
+    }
   }
+  // didn't find target in nums
   return -1;
 };
-console.log(search([4, 5, 6, 7, 8, 1, 2, 3], 8));
+console.log(search([1, 2, 3, 4, 5, 6], 4));
 // @lc code=end
-
-//          -     |  +
-// 4  5  6  7  8  1  2

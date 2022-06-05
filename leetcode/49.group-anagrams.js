@@ -2,7 +2,7 @@
  * @lc app=leetcode id=49 lang=javascript
  *
  * [49] Group Anagrams
- */
+*/
 var isAnagram = function (s, t) {
   if (s.length !== t.length) return false;
   for (let i = 0; i < s.length; i++) {
